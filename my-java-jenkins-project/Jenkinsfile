@@ -5,7 +5,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git 'https://github.com/YOUR_USERNAME/my-java-jenkins-project.git'
+                git 'https://github.com/YashThombare02/my-java-jenkins-project.git'
             }
         }
 
@@ -16,3 +16,4 @@ pipeline {
         }
     }
 }
+
