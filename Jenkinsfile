@@ -34,10 +34,8 @@ Status: FAILURE
 Build URL: ${env.BUILD_URL}
 
 Please check Jenkins console logs.
-""",
-                to: "ythombare1972@gmail.com"
+"""
             )
         }
     }
 }
-
