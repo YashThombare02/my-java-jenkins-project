@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven'
-        jdk 'java'
+        jdk 'Java'
     }
 
     stages {
@@ -40,3 +40,4 @@ Please check Jenkins console logs.
         }
     }
 }
+
