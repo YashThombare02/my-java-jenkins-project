@@ -28,6 +28,22 @@ pipeline {
                 bat 'mvn clean test'
             }
         }
+
+        // ✅ NEW STAGE ADDED HERE
+        stage('SonarQube Analysis') {
+            steps {
+                script {
+                    failedStage = "SonarQube Analysis"
+                }
+                withSonarQubeEnv('SonarQube') {
+                    bat """
+                        mvn sonar:sonar ^
+                        -Dsonar.projectKey=DevOPs ^
+                        -Dsonar.host.url=http://localhost:9000
+                    """
+                }
+            }
+        }
     }
 
     post {
