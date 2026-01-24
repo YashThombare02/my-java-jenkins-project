@@ -25,11 +25,11 @@ pipeline {
                 script {
                     failedStage = "Build and Test"
                 }
+                // Run tests + generate JaCoCo coverage
                 bat 'mvn clean test'
             }
         }
 
-        // ✅ NEW STAGE ADDED HERE
         stage('SonarQube Analysis') {
             steps {
                 script {
@@ -42,11 +42,18 @@ pipeline {
                         -Dsonar.host.url=http://localhost:9000
                     """
                 }
+
+                // ✅ Show Sonar dashboard link in Jenkins console
+                echo "🔎 Sonar Dashboard: http://localhost:9000/dashboard?id=DevOPs"
             }
         }
     }
 
     post {
+        success {
+            echo "✅ Build completed successfully!"
+        }
+
         failure {
             mail(
                 to: 'ythombare1972@gmail.com',
